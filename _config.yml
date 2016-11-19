@@ -1,1 +1,3 @@
-baseurl: /content
+baseurl: '/content'
+include: ['_pages']
+exclude: ['README.md']
