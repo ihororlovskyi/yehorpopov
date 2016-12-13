@@ -33,7 +33,7 @@ layout: compress
 
     <article>
         {% for file in site.static_files %}
-            {% if file contains '.jpg' or '.png' %}
+            {% if file.path contains '.jpg' or file.path contains '.png' %}
                 <a href="{{ site.baseurl }}{{ file.path }}">
                     <figure>
                         <img src="{{ site.baseurl }}{{ file.path }}">
