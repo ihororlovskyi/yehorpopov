@@ -1,15 +1,19 @@
-# content
+# [Phenomic](https://github.com/MoOx/phenomic) phenomic-theme-base
 
-_og-images of Rooster Studio clients_
+## Install dependencies
 
-### Used
+```sh
+npm install
+```
 
-[Jekyll](https://jekyllrb.com) - static site generator based on [Ruby](https://www.ruby-lang.org)
+## Run development server
 
-[GitHub Pages](https://pages.github.com) - free hosting
+```sh
+npm start
+```
 
-### Run
+## Build for production
 
-`jekyll serve -w --baseurl ''`
-
-#### Have fun! :)
+```sh
+npm run build
+```
