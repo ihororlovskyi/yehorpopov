@@ -2,6 +2,7 @@
 title: Nebo Agency
 date: 2016-01-22
 layout: Post
+hero: http://rooooster.com/assets/img/chess/figures/figure-04-hd.jpg
 ---
 
 This is the first post!

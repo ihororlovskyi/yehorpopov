@@ -1,7 +1,6 @@
 ---
-title: About Rooster Studio
-hero: https://farm4.staticflickr.com/3949/15589950511_3675b15e59_k.jpg
-# hero credit: https://www.flickr.com/photos/pslee999/15589950511/
+title: Team
+hero: http://rooooster.com/assets/img/chess/figures/figure-03-hd.jpg
 cta:
   label: Discover Phenomic now
   link: "https://phenomic.io/"

@@ -19,15 +19,15 @@ const Header = (props, { metadata: { pkg } }) => (
                 </Link>
                 <Link
                     className={ styles.link }
-                    to={ "/works/" }
+                    to={ "/projects/" }
                 >
-                    { "Works" }
+                    { "Projects" }
                 </Link>
                 <Link
                     className={ styles.link }
-                    to={ "/about/" }
+                    to={ "/team/" }
                 >
-                    { "About" }
+                    { "Team" }
                 </Link>
             </div>
             <div className={ styles.navPart2 }>
