@@ -1,19 +1,23 @@
-# [Phenomic](https://github.com/MoOx/phenomic) phenomic-theme-base
+# content
 
-## Install dependencies
+_Web development of Rooster Studio site_
 
-```sh
-npm install
-```
+### Used
 
-## Run development server
+[Phenomic](https://github.com/MoOx/phenomic) - static site generator based on [ReactJS](https://facebook.github.io/react)
 
-```sh
-npm start
-```
+[Webpack](https://webpack.github.io) - build system
 
-## Build for production
+[GitHub Pages](https://pages.github.com) - free hosting
 
-```sh
-npm run build
-```
+### Run
+
+`npm i`
+
+`npm start`
+
+### Deploy
+
+`npm run deploy`
+
+#### Have fun! :)

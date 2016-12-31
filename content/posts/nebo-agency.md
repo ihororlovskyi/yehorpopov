@@ -1,13 +1,13 @@
 ---
 title: Nebo Agency
-date: 2016-01-22
+date: 2016-02-01
 layout: Post
 hero: http://rooooster.com/assets/img/chess/figures/figure-04-hd.jpg
 ---
 
-This is the first post!
+Front-end development of Newsman site
 
-Code is highlighted by default.
+<iframe src="http://rooooster.com/newsman/"></iframe>
 
 ```js
 const StatelessComponent = (props) => {
