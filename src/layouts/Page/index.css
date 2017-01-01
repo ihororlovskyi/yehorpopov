@@ -33,7 +33,7 @@
   background: linear-gradient(
     to bottom,
     var(--colorPrimaryDark),
-    color(var(--colorPrimary) a(0.2))
+    color(var(--colorPrimaryDark) a(0.2))
   );
 }
 
