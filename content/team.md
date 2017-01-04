@@ -13,6 +13,7 @@ cta:
 _CEO, Designer_
 
 +380 95 126 26 80
+
 antonpivniuk@gmail.com
 
 ![](http://rooooster.com/assets/img/chess/team/ihororlovskyi-2.jpg)
@@ -20,4 +21,5 @@ antonpivniuk@gmail.com
 _CTO, Designer_
 
 +380 95 345 25 89
+
 ihororlovskyi@gmail.com

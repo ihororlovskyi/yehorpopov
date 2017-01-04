@@ -29,8 +29,6 @@ some projects share their source code!
   </a>.
 </small>
 
----
-
 You may want to take a look at the [404.html](/404.html) and tweak the render.
 
 If you need to make adjustments, you can directly alter page layouts in
@@ -42,4 +40,22 @@ and for colors and common CSS variables, you can modify ``postcss.config.js``.
 _You feel like the base theme is not enough or you just saw something wrong?_
 [Please help us make Phenomic better!](https://phenomic.io/contributing/)
 
----
+
+```js
+const StatelessComponent = (props) => {
+  return (
+    <div>
+      I‘m a stateless component that accepts children
+      { props.children }
+    </div>
+  )
+}
+
+// ...
+
+  return (
+    <StatelessComponent>
+      Example of child
+    </StatelessComponent>
+  )
+```
