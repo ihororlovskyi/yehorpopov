@@ -5,7 +5,7 @@ import PagesList from "../../components/PagesList"
 
 import styles from "./index.css"
 
-const defaultNumberOfPosts = 6
+const defaultNumberOfPosts = 99
 
 const LatestPosts = (props, { collection }) => {
     const latestPosts = enhanceCollection(collection, {
