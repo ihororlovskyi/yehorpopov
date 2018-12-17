@@ -1,23 +1,19 @@
-# content
+# Vuetify Webpack SSR Template
 
-_Web development of Rooster Studio site_
+> Vuetify SSR Webpack Template
 
-### Used
+## Build Setup
 
-[Phenomic](https://github.com/MoOx/phenomic) - static site generator based on [ReactJS](https://facebook.github.io/react)
+``` bash
+vue init vuetifyjs/webpack-ssr
 
-[Webpack](https://webpack.github.io) - build system
+cd webpack-ssr
 
-[GitHub Pages](https://pages.github.com) - free hosting
+# npm
+npm install
 
-### Run
+# yarn
+yarn
+```
 
-`npm i`
-
-`npm start`
-
-### Deploy
-
-`npm run deploy`
-
-#### Have fun! :)
+For additional information, please visit the [Official Documentation](https://vuetifyjs.com).
