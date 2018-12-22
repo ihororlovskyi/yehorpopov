@@ -1,19 +1,27 @@
-# Vuetify Webpack SSR Template
+# sentimony-nuxt
 
-> Vuetify SSR Webpack Template
+_Web development of Sentimony Records site_
 
-## Build Setup
+### Used
 
-``` bash
-vue init vuetifyjs/webpack-ssr
+[NuxtJS](https://nuxtjs.org) - framework for server-rendered [VueJS](https://vuejs.org) applications
 
-cd webpack-ssr
+[Firebase](https://firebase.google.com) - realtime database by [Google Developers](https://developers.google.com)
 
-# npm
-npm install
+[Coriolan UI](https://coriolan-ui.github.io) - [Sass](http://sass-lang.com) mixins pack
 
-# yarn
-yarn
-```
+[Disqus](https://disqus.com) - comments
 
-For additional information, please visit the [Official Documentation](https://vuetifyjs.com).
+[Netlify](https://www.netlify.com) - automatic deploy & free hosting platform
+
+### Content
+
+[https://sentimony-db.firebaseio.com/.json](https://sentimony-db.firebaseio.com/.json)
+
+### Run
+
+`npm i`
+
+`npm run dev`
+
+#### Have fun! :)

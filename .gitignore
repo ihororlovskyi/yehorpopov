@@ -1,4 +1,6 @@
-.DS_Store
 node_modules/
+.firebase/
+.nuxt/
+nuxt/
 dist/
-npm-debug.log
+client/
