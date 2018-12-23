@@ -1,15 +1,17 @@
 <template>
-  <div id="app-wrapper">
-    <app-header></app-header>
-    <div id="content-wrapper" class="mui--text-center">
-      <nuxt class="mui-container"/>
+  <v-app>
+    <div id="app-wrapper">
+      <app-header></app-header>
+      <div id="content-wrapper" class="mui--text-center">
+        <nuxt class="mui-container"/>
+      </div>
+      <app-footer></app-footer>
     </div>
-    <app-footer></app-footer>
-  </div>
+  </v-app>
 </template>
 
 <script>
-  import AppFooter from '@/components/Footer'
+  import AppFooter from '@/components/AppFooter'
   import AppHeader from '@/components/Header'
 
   export default {

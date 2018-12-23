@@ -1,6 +1,9 @@
 <template>
   <div>
     <h2 class="headline">Rendered From:<span class="render-result">{{renderSource}}</span></h2>
+    <v-btn color="success">
+      Vuetify
+    </v-btn>
     <ul>
       <li v-for="i in releases" :key="i.slug">
         <router-link :to="'/release/' + i.slug + '/'">
