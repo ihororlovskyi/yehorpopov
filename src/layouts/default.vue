@@ -1,21 +1,23 @@
 <template>
   <v-app>
-    <div id="app-wrapper">
-      <app-header></app-header>
-      <div id="content-wrapper" class="mui--text-center">
-        <nuxt class="mui-container"/>
-      </div>
-      <app-footer></app-footer>
-    </div>
+    <app-header></app-header>
+    <v-container>
+      <v-layout>
+        <v-flex>
+          <nuxt/>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 
 <script>
-  import AppFooter from '@/components/AppFooter'
   import AppHeader from '@/components/Header'
 
   export default {
-    components: { AppHeader, AppFooter },
+    components: {
+      AppHeader
+    },
     methods: {
       reloadPage () {
         window.location.reload()
@@ -25,9 +27,4 @@
 </script>
 
 <style>
-  #app-wrapper {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
 </style>

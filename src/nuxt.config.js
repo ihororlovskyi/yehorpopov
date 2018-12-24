@@ -12,7 +12,8 @@ module.exports = {
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       // { rel: "stylesheet", href: "https://fonts.googleapis.com/css?family=Roboto" },
       // { rel: "stylesheet", href: "https://cdn.muicss.com/mui-0.9.35/css/mui.min.css" }
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' },
+      { rel: 'stylesheet', href: 'https://cdn.materialdesignicons.com/2.8.94/css/materialdesignicons.min.css' },
     ]
   },
   loading: {
@@ -34,7 +35,19 @@ module.exports = {
     plugins: [
       new VuetifyLoaderPlugin()
     ],
-    // extractCSS: true,
+    extractCSS: true,
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          styles: {
+            name: 'styles',
+            test: /\.(css|vue|styl)$/,
+            chunks: 'all',
+            enforce: true
+          }
+        }
+      }
+    },
     // babel: {
     //   presets: [
     //     'es2015',

@@ -4,7 +4,7 @@ _Web development of Yehor Popov Studio site_
 
 ### Tech
 
-vue, nuxt, firebase ([database](https://yehorpopov-db.firebaseio.com/.json), storage, hosting, functions), spa, ssr
+vue, nuxt, firebase ([database](https://yehorpopov-db.firebaseio.com/.json), storage, hosting, functions), spa, ssr, vuetify
 
 ### Work
 
