@@ -1,14 +1,12 @@
 <template>
-  <v-app>
-    <app-header></app-header>
-    <v-container>
-      <v-layout>
-        <v-flex>
-          <nuxt/>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-app>
+  <section>
+    <v-app>
+      <app-header></app-header>
+      <v-container class="MainContainer">
+        <nuxt/>
+      </v-container>
+    </v-app>
+  </section>
 </template>
 
 <script>
@@ -17,14 +15,11 @@
   export default {
     components: {
       AppHeader
-    },
-    methods: {
-      reloadPage () {
-        window.location.reload()
-      }
     }
   }
 </script>
 
-<style>
+<style lang="stylus">
+  .MainContainer
+    margin-top 64px
 </style>
