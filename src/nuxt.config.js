@@ -2,11 +2,11 @@ const nodeExternals = require('webpack-node-externals')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
 module.exports = {
   head: {
-    title: "Yehor Popov",
+    title: "Studio Yehor Popov",
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "Yehor Popov Studio" }
+      { hid: "description", name: "description", content: "Studio Yehor Popov" }
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
@@ -18,7 +18,7 @@ module.exports = {
     color: 'rgba(255,255,255,0.5)',
     height: '5px'
   },
-  mode: "spa",
+  // mode: "spa",
   plugins: [
     '~/plugins/vuetify.js'
   ],

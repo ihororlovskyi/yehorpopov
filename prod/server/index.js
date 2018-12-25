@@ -13,7 +13,7 @@ const config = {
 const nuxt = new Nuxt(config);
 
 function handleRequest(req, res) {
-  console.log("upd111");
+  console.log("upd222");
   res.set("Cache-Control", "public, max-age=300, s-maxage=600");
   return new Promise((resolve, reject) => {
     nuxt.render(req, res, promise => {
