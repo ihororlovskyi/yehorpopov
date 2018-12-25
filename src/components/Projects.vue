@@ -1,13 +1,20 @@
 <template>
   <v-layout row wrap class="Projects mb-5">
     <v-flex xs12 v-for="i in projects" :key="i.slug">
-      <h4>{{ i.title }}</h4>
-      <div v-html="i.description"/>
-      <div>Цена проекта и ремонта: <b>{{ i.price }}</b></div>
-      <v-btn outline @click="onLoadProject(i.slug)" class="mx-0">
-        Подробнее
-        <v-icon>mdi-chevron-right</v-icon>
-      </v-btn>
+      <v-layout row wrap class="ProjectsItem mb-5">
+        <v-flex xs4>
+          <h4>{{ i.title }}</h4>
+          <div v-html="i.description"/>
+          <div>Цена проекта и ремонта: <b>{{ i.price }}</b></div>
+          <v-btn outline @click="onLoadProject(i.slug)" class="mx-0">
+            Подробнее
+            <v-icon>mdi-chevron-right</v-icon>
+          </v-btn>
+        </v-flex>
+        <v-flex xs8>
+          <img :src="i.img" alt="" class="ProjectsItemImg">
+        </v-flex>
+      </v-layout>
     </v-flex>
   </v-layout>
 </template>
@@ -28,4 +35,11 @@
 <style lang="stylus">
   .Projects
     // display block
+
+    &Item
+      //
+
+      &Img
+        width: 100%;
+        display: block;
 </style>
