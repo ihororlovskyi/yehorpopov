@@ -1,31 +1,25 @@
 <template>
-  <div id="app-wrapper">
-    <app-header></app-header>
-    <div id="content-wrapper" class="mui--text-center">
-      <nuxt class="mui-container"/>
-    </div>
-    <app-footer></app-footer>
-  </div>
+  <section>
+    <v-app>
+      <app-header></app-header>
+      <v-container class="MainContainer">
+        <nuxt/>
+      </v-container>
+    </v-app>
+  </section>
 </template>
 
 <script>
-  import AppFooter from '@/components/Footer'
   import AppHeader from '@/components/Header'
 
   export default {
-    components: { AppHeader, AppFooter },
-    methods: {
-      reloadPage () {
-        window.location.reload()
-      }
+    components: {
+      AppHeader
     }
   }
 </script>
 
-<style>
-  #app-wrapper {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+<style lang="stylus">
+  .MainContainer
+    margin-top 64px
 </style>

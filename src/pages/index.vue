@@ -1,35 +1,42 @@
 <template>
-  <section class="container">
-    <div>
-      <logo/>
-      <h1 class="mui--text-display1">Nuxt.js Firebase Functions</h1>
-      <h2 class="headline">Rendered From:<span class="render-result">{{renderSource}}</span></h2>
-      <button
-        id="reload-btn"
-        class="mui-btn mui-btn--primary"
-        @click="reloadPage">
-        Reload Page
-      </button>
-    </div>
+  <section>
+    <hero :projects="projects"/>
+    <features/>
+    <projects :projects="projects"/>
+    <how-it-works/>
+    <works/>
+    <team/>
+    <contacts/>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+  import Hero from '@/components/Hero'
+  import Features from '@/components/Features'
+  import Projects from '@/components/Projects'
+  import HowItWorks from '@/components/HowItWorks'
+  import Works from '@/components/Works'
+  import Team from '@/components/Team'
+  import Contacts from '@/components/Contacts'
+  import fetch from 'isomorphic-fetch'
 
-export default {
-  asyncData () {
-    return {
-      renderSource: process.static ? 'static' : (process.server ? 'server' : 'client')
-    }
-  },
-  components: {
-    Logo
-  },
-  methods: {
-    reloadPage () {
-      window.location.reload()
+  export default {
+    components: {
+      Hero,
+      Features,
+      Projects,
+      HowItWorks,
+      Works,
+      Team,
+      Contacts
+    },
+    async asyncData() {
+      const response = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
+      const projects = await response.json()
+      return { projects }
     }
   }
-}
 </script>
+
+<style lang="stylus">
+</style>

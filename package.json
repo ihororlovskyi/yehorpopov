@@ -14,8 +14,9 @@
     "setup": "npm i; npm run setup:client; npm run setup:server",
     "setup:client": "cd src; npm i",
     "setup:server": "cd prod/server; npm i",
-    "copyassets": "npm run copydist; npm run copystatic",
-    "copydist": "cp -R prod/server/nuxt/dist/ prod/client/assets",
+    "copyassets": "npm run copydistserver; npm run copydistclient; npm run copystatic",
+    "copydistserver": "cp -R prod/server/nuxt/dist/server prod/client/assets",
+    "copydistclient": "cp -R prod/server/nuxt/dist/client prod/client/assets",
     "copystatic": "cp -R src/static/ prod/client",
     "clean": "rimraf prod/client/assets/*",
     "build:nuxt": "cd src; npm run build"
