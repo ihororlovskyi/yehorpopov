@@ -1,9 +1,16 @@
 <template>
   <v-layout row wrap class="Hero mb-5">
     <v-flex xs4>
-      <div>Выберите дизайн проект, а мы сделаем перепланировку, ремонт и архитекторский надзор за 60 дней</div>
-      <div>Егор Попов</div>
-      <div>Главный архитектор дизайн студии</div>
+      <div class="HeroChoose">{{ choose }}</div>
+      <v-layout align-center>
+        <v-flex>
+          <img class="HeroUserpic" :src="userpic" alt="">
+        </v-flex>
+        <v-flex>
+          <div class="HeroYehorpopov">{{ yehorpopov }}</div>
+          <div class="HeroPosition">{{ position }}</div>
+        </v-flex>
+      </v-layout>
     </v-flex>
     <v-flex xs8>
       <v-layout>
@@ -28,6 +35,14 @@
 
 <script>
   export default {
+    data () {
+      return {
+        choose: 'Выберите дизайн проект, а мы сделаем перепланировку, ремонт и архитекторский надзор за 60 дней',
+        userpic: 'https://images.unsplash.com/photo-1495147334217-fcb3445babd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=160&h=160&q=69',
+        yehorpopov: 'Егор Попов',
+        position: 'Главный архитектор дизайн студии'
+      }
+    },
     props: [
       'projects'
     ],
@@ -42,6 +57,23 @@
 <style lang="stylus">
   .Hero
     // display block
+    &Choose
+      font-size: 24px
+      font-weight: 800
+      margin-top: 160px
+      margin-bottom: 20px
+      margin-right: -50%
+      position: relative;
+      z-index: 1
+    &Userpic
+      display: block;
+      width: 80px;
+      height: auto;
+      border-radius: 100px
+    &Yehorpopov
+      //
+    &Position
+      font-size: 12px
 
   .topImgItem
     display block
