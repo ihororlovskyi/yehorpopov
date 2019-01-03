@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap class="Hero mb-5">
     <v-flex xs4>
-      <div class="HeroChoose">{{ choose }}</div>
+      <div class="HeroChoose fs24 fw800">{{ choose }}</div>
       <v-layout align-center>
         <v-flex>
           <img class="HeroUserpic" :src="userpic" alt="">
@@ -58,8 +58,8 @@
   .Hero
     // display block
     &Choose
-      font-size: 24px
-      font-weight: 800
+      // font-size: 24px
+      // font-weight: 800
       margin-top: 160px
       margin-bottom: 20px
       margin-right: -50%

@@ -1,8 +1,10 @@
 const nodeExternals = require('webpack-node-externals')
 const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin')
+
 module.exports = {
   head: {
-    title: "Studio Yehor Popov",
+    // title: "Studio Yehor Popov",
+    titleTemplate: '%s | Studio Yehor Popov',
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },

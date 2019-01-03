@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap class="Contacts mb-5">
-    <h4>Контакты</h4>
+    <div class="fs24 fw800">Контакты</div>
     <div>facebook</div>
     <div>instagram</div>
     <div>

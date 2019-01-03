@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap class="Team mb-5">
-    <h4>Наша команда</h4>
+    <div class="fs24 fw800">Наша команда</div>
     <div>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
       Ut enim ad minim veniam, quis nostrud exercitation

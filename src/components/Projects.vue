@@ -1,9 +1,9 @@
 <template>
-  <v-layout row wrap class="Projects mb-5">
+  <v-layout row wrap class="Projects mb-5" id="projects">
     <v-flex xs12 v-for="i in projects" :key="i.slug">
       <v-layout row wrap class="ProjectsItem mb-5">
         <v-flex xs4>
-          <h4>{{ i.title }}</h4>
+          <div class="fs24 fw800">{{ i.title }}</div>
           <div v-html="i.description"/>
           <div>Цена проекта и ремонта: <b>{{ i.price }}</b></div>
           <v-btn outline @click="onLoadProject(i.slug)" class="mx-0">

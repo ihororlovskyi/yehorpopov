@@ -1,7 +1,7 @@
 <template>
   <v-layout row wrap class="Projectpage">
     <v-flex xs12>
-      <h1>{{ project.title }}</h1>
+      <h1 class="fs24 fw800">{{ project.title }}</h1>
     </v-flex>
     <v-flex xs4>
       <div v-html="project.description"/>

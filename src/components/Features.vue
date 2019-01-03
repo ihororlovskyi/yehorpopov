@@ -2,7 +2,7 @@
   <v-layout row wrap class="Features mb-5">
     <v-flex xs4 v-for="i in features" :key="i.id">
       <div class="FeaturesItem">
-        <div class="FeaturesItemTitle">{{ i.title }}</div>
+        <div class="FeaturesItemTitle fs32 fw800">{{ i.title }}</div>
         <div class="FeaturesItemDescription">{{ i.description }}</div>
       </div>
     </v-flex>
@@ -31,8 +31,8 @@
       padding-right 20px
 
       &Title
-        font-weight 800
-        font-size 32px
+        // font-weight 800
+        // font-size 32px
 
       &Description
         // display block
