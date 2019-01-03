@@ -14,7 +14,7 @@
     </v-flex>
     <v-flex xs8>
       <v-layout>
-        <v-flex xs4 v-for="i in projects" :key="i.slug" v-if="i.homeTopImg">
+        <v-flex xs4 v-for="i in data" :key="i.slug" v-if="i.homeTopImg">
           <a class="topImgItem"
             @click="onLoadProject(i.slug)"
             :style="'background-image:url(' + i.homeTopImg + ')'"
@@ -44,7 +44,7 @@
       }
     },
     props: [
-      'projects'
+      'data'
     ],
     methods: {
       onLoadProject (slug) {

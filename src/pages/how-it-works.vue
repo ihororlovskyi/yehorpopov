@@ -1,6 +1,6 @@
 <template>
   <section>
-    <how-it-works/>
+    <how-it-works :data="howItWorks"/>
   </section>
 </template>
 
@@ -10,6 +10,11 @@
   export default {
     components: {
       HowItWorks
+    },
+    async asyncData() {
+      const responseHowItWorks = await fetch('https://yehorpopov-db.firebaseio.com/howItWorks.json')
+      const howItWorks = await responseHowItWorks.json()
+      return { howItWorks }
     }
   }
 </script>

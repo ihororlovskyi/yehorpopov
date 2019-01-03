@@ -1,9 +1,9 @@
 <template>
   <section>
-    <hero :projects="projects"/>
+    <hero :data="projects"/>
     <features/>
-    <projects :projects="projects"/>
-    <how-it-works/>
+    <projects :data="projects"/>
+    <how-it-works :data="howItWorks"/>
     <works/>
     <team/>
     <contacts/>
@@ -31,9 +31,11 @@
       Contacts
     },
     async asyncData() {
-      const response = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
-      const projects = await response.json()
-      return { projects }
+      const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
+      const responseHowItWorks = await fetch('https://yehorpopov-db.firebaseio.com/howItWorks.json')
+      const projects = await responseProjects.json()
+      const howItWorks = await responseHowItWorks.json()
+      return { projects, howItWorks }
     }
   }
 </script>

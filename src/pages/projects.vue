@@ -1,6 +1,6 @@
 <template>
   <section>
-    <projects :projects="projects"/>
+    <projects :data="projects"/>
   </section>
 </template>
 
@@ -13,8 +13,8 @@
       Projects
     },
     async asyncData() {
-      const response = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
-      const projects = await response.json()
+      const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
+      const projects = await responseProjects.json()
       return { projects }
     }
   }
