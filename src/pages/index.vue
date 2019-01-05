@@ -1,12 +1,12 @@
 <template>
   <section>
     <hero :data="projects"/>
-    <features/>
+    <features :data="features"/>
     <projects :data="projects"/>
     <how-it-works :data="howItWorks"/>
     <works/>
     <team :data="team"/>
-    <contacts/>
+    <contacts :data="contacts"/>
   </section>
 </template>
 
@@ -18,7 +18,7 @@
   import Works from '@/components/Works'
   import Team from '@/components/Team'
   import Contacts from '@/components/Contacts'
-  import fetch from 'isomorphic-fetch'
+  // import fetch from 'isomorphic-fetch'
 
   export default {
     components: {
@@ -32,15 +32,21 @@
     },
     async asyncData() {
       const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
+      const responseFeatures = await fetch('https://yehorpopov-db.firebaseio.com/features.json')
       const responseHowItWorks = await fetch('https://yehorpopov-db.firebaseio.com/howItWorks.json')
       const responseTeam = await fetch('https://yehorpopov-db.firebaseio.com/team.json')
+      const responseContacts = await fetch('https://yehorpopov-db.firebaseio.com/contacts.json')
       const projects = await responseProjects.json()
+      const features = await responseFeatures.json()
       const howItWorks = await responseHowItWorks.json()
       const team = await responseTeam.json()
+      const contacts = await responseContacts.json()
       return {
         projects,
+        features,
         howItWorks,
-        team
+        team,
+        contacts
       }
     }
   }

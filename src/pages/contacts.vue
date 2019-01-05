@@ -1,6 +1,6 @@
 <template>
   <section>
-    <contacts/>
+    <contacts :data="contacts"/>
   </section>
 </template>
 
@@ -10,6 +10,11 @@
   export default {
     components: {
       Contacts
+    },
+    async asyncData() {
+      const responseContacts = await fetch('https://yehorpopov-db.firebaseio.com/contacts.json')
+      const contacts = await responseContacts.json()
+      return { contacts }
     }
   }
 </script>

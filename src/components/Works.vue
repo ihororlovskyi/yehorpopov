@@ -1,42 +1,91 @@
 <template>
-  <v-layout row wrap class="Works mb-5">
+  <v-layout row wrap class="Works mb-5" align-center>
     <v-flex xs6>
-      <div class="fs24 fw800 mb-4">Наши работы</div>
-      <div>@eyhorpopov</div>
-      <div>Главный архитектор дизайн студии</div>
+      <div class="fs24 fw800 mb-4">{{ title }}</div>
+      <div><a :href="instapage" target="_blank">@{{ username }}</a></div>
+      <div>{{ position }}</div>
     </v-flex>
-    <v-flex xs6 class="text-xs-right">
+    <v-flex xs6 class="text-xs-right" >
       <v-btn outline class="mx-0">
-        <v-icon left>{{ btnIcon }}</v-icon>
-        {{ btnText }}
+        <v-icon left>{{ btnFollowIcon }}</v-icon>
+        {{ btnFollowText }}
       </v-btn>
     </v-flex>
+
     <v-layout row wrap class="WorksList mb-5">
-      <v-flex xs4 v-for="i in worksList" :key="i.img" class="WorksListItem">
-        <img class="WorksListItemImg" :src="i.img" alt=""></div>
+      <v-flex xs3 v-for="i in grams" :key="i.id" class="WorksListItem">
+        <a :href="i.link" target="_blank">
+          <img class="WorksListItemImg" :src="i.images.standard_resolution.url" :alt="i.text" />
+        </a>
       </v-flex>
     </v-layout>
+
+    <!-- <div v-else class="loading"></div> -->
+    <!-- <div v-if="error" class="error">Sorry, the Instagrams couldn't be fetched.</div> -->
+
+    <v-flex xs12 class="text-sm-center" v-if="next_url">
+      <v-btn @click="getMoreGrams" outline class="mx-0">
+        {{ btnLoadText }}
+        <v-icon right>{{ btnLoadIcon }}</v-icon>
+      </v-btn>
+    </v-flex>
+
   </v-layout>
 </template>
 
 <script>
+  import axios from 'axios'
+
   export default {
     data () {
       return {
-        worksList: [
-          { img: 'https://images.unsplash.com/photo-1545652144-6b11c89f8aa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1546012112-142c81b59a42?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1496616481515-56fd775bb2f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1546012112-142c81b59a42?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1545652144-6b11c89f8aa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1496616481515-56fd775bb2f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1545652144-6b11c89f8aa2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1496616481515-56fd775bb2f7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&h=700&q=69' },
-          { img: 'https://images.unsplash.com/photo-1546012112-142c81b59a42?ixlib=rb-1.2.1&auto=format&fit=crop&w=700&h=700&q=69' },
-        ],
-        btnText: 'Follow',
-        btnIcon: 'mdi-instagram'
+        btnFollowText: 'Follow',
+        btnFollowIcon: 'mdi-instagram',
+        title: 'Наши работы',
+        position: 'Главный архитектор дизайн студии',
+        btnLoadText: 'Подзагрузить',
+        btnLoadIcon: 'mdi-chevron-down',
+
+        access_token: '176908350.1677ed0.3c30032e917a430e8d1f65eae2223b1e',
+        url: 'https://api.instagram.com/v1/users/self/media/recent/',
+        username: '',
+        grams: [],
+        next_url: '',
+        error: false
+     }
+    },
+    computed: {
+      instapage() {
+        return 'https://www.instagram.com/' + this.username
       }
+    },
+    methods: {
+      getGrams() {
+        axios.get(this.url + '?access_token=' + this.access_token)
+          .then(({data}) => {
+            this.grams = data.data
+            this.username = data.data[0].user.username
+            this.next_url = data.pagination.next_url
+          })
+          .catch(function (error) {
+            console.log(error)
+            this.error = true
+          })
+      },
+      getMoreGrams() {
+        axios.get(this.next_url)
+          .then(({data}) => {
+            this.grams = this.grams.concat(data.data)
+            this.next_url = data.pagination.next_url
+          })
+          .catch(function (error) {
+            console.log(error)
+            this.error = true
+          })
+      }
+    },
+    created() {
+      this.getGrams();
     }
   }
 </script>

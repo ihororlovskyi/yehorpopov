@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-layout row wrap class="mb-5">
         <v-flex xs12>
-          <div class="fs24 fw800 mb40">Контакты</div>
+          <div class="fs24 fw800 mb40">{{ data.title }}</div>
         </v-flex>
         <v-flex xs4>
           <v-btn small class="ma-0 px-0" style="min-width:28px" flat v-for="i in socialMenu" :key="i.key" :href="i.url" target="_blank">
@@ -11,14 +11,10 @@
           </v-btn>
         </v-flex>
         <v-flex xs4>
-          <div>
-            Киев<br>
-            ул Петрова, оф. 17<br>
-            +380 95 126 36 80
-          </div>
+          <div v-html="data.text"/>
         </v-flex>
         <v-flex xs4>
-          <div>yehorpopov@gmail.com</div>
+          <div>{{ data.email }}</div>
         </v-flex>
       </v-layout>
     </v-flex>
@@ -26,7 +22,7 @@
       <v-layout row wrap class="mb-5">
         <v-flex xs12>
           <iframe class="ContactsMap"
-            src="https://www.google.com/maps/embed/v1/place?q=kyiv&key=AIzaSyBETsKlJoUTKVLYIAe7O_CkVWwAsjiWhVw"
+            :src="'https://www.google.com/maps/embed/v1/place?q=' + data.mapLocation + '&key=AIzaSyBETsKlJoUTKVLYIAe7O_CkVWwAsjiWhVw'"
             allowfullscreen
           />
         </v-flex>
@@ -37,6 +33,9 @@
 
 <script>
   export default {
+    props: [
+      'data'
+    ],
     data () {
       return {
         socialMenu: [

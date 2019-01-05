@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap class="Features mb-5">
-    <v-flex xs4 v-for="i in features" :key="i.id">
+    <v-flex xs4 v-for="i in data" :key="i.title">
       <div class="FeaturesItem">
         <div class="FeaturesItemTitle fs32 fw800">{{ i.title }}</div>
         <div class="FeaturesItemDescription">{{ i.description }}</div>
@@ -11,6 +11,9 @@
 
 <script>
   export default {
+    props: [
+      'data'
+    ],
     data () {
       return {
         features: [
@@ -25,15 +28,11 @@
 
 <style lang="stylus">
   .Features
-    // margin 0 0 40px
-
     &Item
       padding-right 20px
-
       &Title
         // font-weight 800
         // font-size 32px
-
       &Description
         // display block
 </style>
