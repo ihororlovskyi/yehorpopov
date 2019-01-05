@@ -22,8 +22,8 @@
             <div :class="'topImgItem__hover topImgItem__hover--' + i.slug">
               <div class="topImgItem__title">{{ i.shorttitle }}</div>
               <v-btn outline class="mx-0 mt-4">
-                Подробнее
-                <v-icon>mdi-chevron-right</v-icon>
+                {{ btnText }}
+                <v-icon right>{{ btnIcon }}</v-icon>
               </v-btn>
             </div>
           </a>
@@ -35,17 +35,19 @@
 
 <script>
   export default {
+    props: [
+      'data'
+    ],
     data () {
       return {
         choose: 'Выберите дизайн проект, а мы сделаем перепланировку, ремонт и архитекторский надзор за 60 дней',
         userpic: 'https://images.unsplash.com/photo-1495147334217-fcb3445babd5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=160&h=160&q=69',
         yehorpopov: 'Егор Попов',
-        position: 'Главный архитектор дизайн студии'
+        position: 'Главный архитектор дизайн студии',
+        btnText: 'Подробнее',
+        btnIcon: 'mdi-chevron-right'
       }
     },
-    props: [
-      'data'
-    ],
     methods: {
       onLoadProject (slug) {
         this.$router.push('/project/' + slug)

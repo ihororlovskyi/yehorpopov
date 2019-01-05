@@ -5,7 +5,7 @@
     <projects :data="projects"/>
     <how-it-works :data="howItWorks"/>
     <works/>
-    <team/>
+    <team :data="team"/>
     <contacts/>
   </section>
 </template>
@@ -33,9 +33,15 @@
     async asyncData() {
       const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
       const responseHowItWorks = await fetch('https://yehorpopov-db.firebaseio.com/howItWorks.json')
+      const responseTeam = await fetch('https://yehorpopov-db.firebaseio.com/team.json')
       const projects = await responseProjects.json()
       const howItWorks = await responseHowItWorks.json()
-      return { projects, howItWorks }
+      const team = await responseTeam.json()
+      return {
+        projects,
+        howItWorks,
+        team
+      }
     }
   }
 </script>

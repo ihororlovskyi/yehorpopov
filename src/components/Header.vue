@@ -15,7 +15,7 @@
     <v-spacer/>
     <v-toolbar-items>
       <v-btn flat v-for="i in socialMenu" :key="i.key" :href="i.url" target="_blank">
-        <v-icon>{{ i.icon }}</v-icon>
+        <v-icon small>{{ i.icon }}</v-icon>
       </v-btn>
     </v-toolbar-items>
   </v-toolbar>

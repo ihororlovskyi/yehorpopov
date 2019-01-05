@@ -1,6 +1,6 @@
 <template>
   <section>
-    <team/>
+    <team :data="team"/>
   </section>
 </template>
 
@@ -10,6 +10,11 @@
   export default {
     components: {
       Team
+    },
+    async asyncData() {
+      const responseTeam = await fetch('https://yehorpopov-db.firebaseio.com/team.json')
+      const team = await responseTeam.json()
+      return { team }
     }
   }
 </script>
