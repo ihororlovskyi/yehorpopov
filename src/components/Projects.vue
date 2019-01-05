@@ -7,7 +7,7 @@
       <v-flex xs4>
         <div class="ProjectsItemText mb-5">
           <div class="mb-4" v-html="i.description"/>
-          <div class="mb-4">Цена проекта и ремонта: <b>{{ i.price }}</b></div>
+          <div class="mb-4">{{ priceText }} <b>{{ i.price }}</b></div>
           <v-btn outline @click="onLoadProject(i.slug)" class="mx-0">
             {{ btnText }}
             <v-icon right>{{ btnIcon }}</v-icon>
@@ -32,6 +32,7 @@
     ],
     data () {
       return {
+        priceText: 'Цена проекта и ремонта:',
         btnText: 'Подробнее',
         btnIcon: 'mdi-chevron-right'
       }
