@@ -18,7 +18,7 @@
   import Works from '@/components/Works'
   import Team from '@/components/Team'
   import Contacts from '@/components/Contacts'
-  // import fetch from 'isomorphic-fetch'
+  import fetch from 'isomorphic-fetch'
 
   export default {
     components: {
