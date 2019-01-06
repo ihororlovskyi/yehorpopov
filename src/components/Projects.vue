@@ -15,7 +15,7 @@
         </div>
       </v-flex>
       <v-flex xs8>
-        <img :src="i.img" alt="" class="ProjectsItemImg mb-5">
+        <img :src="i.imgSlider" alt="" class="ProjectsItemImg mb-5">
       </v-flex>
       <v-flex xs12>
         <img :src="i.imgSlim" alt="" class="ProjectsItemImg mb-5">
