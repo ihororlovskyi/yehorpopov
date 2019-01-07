@@ -12,10 +12,15 @@
     components: {
       Projects
     },
-    async asyncData() {
-      const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
-      const projects = await responseProjects.json()
-      return { projects }
+    // async asyncData() {
+    //   const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects2.json')
+    //   const projects = await responseProjects.json()
+    //   return { projects }
+    // },
+    computed: {
+      projects () {
+        return this.$store.getters.loadedProjectsSortedByDate
+      }
     }
   }
 </script>

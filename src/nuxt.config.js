@@ -23,15 +23,16 @@ module.exports = {
   },
   // mode: "spa",
   plugins: [
-    '~/plugins/vuetify.js'
+    '~/plugins/vuetify.js',
+    '~/plugins/fireauth.js'
   ],
   css: [
     '~/assets/styles/main.css',
     '~/assets/styles/app.styl'
   ],
-  buildDir: "../prod/server/nuxt",
+  // buildDir: "../prod/server/nuxt",
   build: {
-    publicPath: "/assets/",
+    // publicPath: "/assets/",
     transpile: [/^vuetify/],
     plugins: [
       new VuetifyLoaderPlugin()
@@ -78,5 +79,8 @@ module.exports = {
         ]
       }
     }
-  }
-};
+  },
+  // router: {
+  //   mode: 'hash'
+  // }
+}

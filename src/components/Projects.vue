@@ -8,7 +8,7 @@
         <div class="ProjectsItemText mb-5">
           <div class="mb-4" v-html="i.description"/>
           <div class="mb-4">{{ priceText }} <b>{{ i.price }}</b></div>
-          <v-btn outline @click="onLoadProject(i.slug)" class="mx-0">
+          <v-btn outline @click="onLoadProject(i.id)" class="mx-0">
             {{ btnText }}
             <v-icon right>{{ btnIcon }}</v-icon>
           </v-btn>
@@ -38,8 +38,8 @@
       }
     },
     methods: {
-      onLoadProject (slug) {
-        this.$router.push('/project/' + slug)
+      onLoadProject (id) {
+        this.$router.push('/project/' + id)
       }
     }
   }

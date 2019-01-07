@@ -14,13 +14,13 @@
     </v-flex>
     <v-flex xs8>
       <v-layout>
-        <v-flex xs4 v-for="i in data" :key="i.slug" v-if="i.homeTopImg">
+        <v-flex xs4 v-for="i in data" :key="i.id" v-if="i.homeTopImg">
           <a class="topImgItem"
-            @click="onLoadProject(i.slug)"
+            @click="onLoadProject(i.id)"
             :style="'background-image:url(' + i.homeTopImg + ')'"
           >
             <div :class="'topImgItem__hover topImgItem__hover--' + i.slug">
-              <div class="topImgItem__title">{{ i.shorttitle }}</div>
+              <div class="topImgItem__title">{{ i.title }}</div>
               <v-btn outline class="mx-0 mt-4">
                 {{ btnText }}
                 <v-icon right>{{ btnIcon }}</v-icon>
@@ -49,8 +49,8 @@
       }
     },
     methods: {
-      onLoadProject (slug) {
-        this.$router.push('/project/' + slug)
+      onLoadProject (id) {
+        this.$router.push('/project/' + id)
       }
     }
   }
