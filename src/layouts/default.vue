@@ -3,14 +3,15 @@
     <v-app>
       <app-header></app-header>
       <v-container class="MainContainer">
-        <div v-if="loading" class="text-xs-center">
+        <!-- <div v-if="loading" class="text-xs-center">
           <v-progress-circular
             indeterminate
             :size="60"
             color="black"
           />
         </div>
-        <nuxt v-else/>
+        <nuxt v-else/> -->
+        <nuxt/>
       </v-container>
     </v-app>
   </section>
@@ -23,11 +24,11 @@
     components: {
       AppHeader
     },
-    computed: {
-      loading () {
-        return this.$store.getters.loading
-      }
-    }
+    // computed: {
+    //   loading () {
+    //     return this.$store.getters.loading
+    //   }
+    // }
   }
 </script>
 

@@ -1,5 +1,13 @@
 <template>
   <v-layout row wrap class="Projects mb-5" id="projects">
+    <!-- <div v-if="loading" class="text-xs-center">
+      <v-progress-circular
+        indeterminate
+        :size="60"
+        color="black"
+      />
+    </div>
+    <v-layout v-else row wrap class="ProjectsItem mb-5" v-for="i in data" :key="i.slug"> -->
     <v-layout row wrap class="ProjectsItem mb-5" v-for="i in data" :key="i.slug">
       <v-flex xs12>
         <div class="fs24 fw800 mb80">{{ i.title }}</div>
@@ -40,6 +48,11 @@
     methods: {
       onLoadProject (id) {
         this.$router.push('/project/' + id)
+      }
+    },
+    computed: {
+      loading () {
+        return this.$store.getters.loading
       }
     }
   }

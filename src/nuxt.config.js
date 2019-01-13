@@ -25,14 +25,15 @@ module.exports = {
   plugins: [
     '~/plugins/vuetify.js',
     '~/plugins/fireauth.js'
+    // { src: '~/plugins/fireauth.js', ssr: true }
   ],
   css: [
     '~/assets/styles/main.css',
     '~/assets/styles/app.styl'
   ],
-  // buildDir: "../prod/server/nuxt",
+  buildDir: "../prod/server/nuxt",
   build: {
-    // publicPath: "/assets/",
+    publicPath: "/assets/",
     transpile: [/^vuetify/],
     plugins: [
       new VuetifyLoaderPlugin()

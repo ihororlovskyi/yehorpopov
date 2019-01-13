@@ -53,6 +53,13 @@
       projects () {
         return this.$store.getters.loadedProjectsSortedByDate
       }
+    },
+    head: {
+      title: 'Home',
+      meta: [
+        { name: 'description', content: 'Home of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>

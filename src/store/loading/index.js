@@ -1,7 +1,8 @@
 export default {
 
   state: {
-    loading: true
+    // loading: true
+    loading: false
   },
 
   mutations: {
