@@ -34,6 +34,7 @@
           { key: 'contacts', title: 'Контакты', url: '/contacts' }
         ],
         socialMenu: [
+          { key: 'telegram', icon: 'mdi-telegram', url: 'https://www.instagram.com/sentimony.records/', target: 'true' },
           { key: 'facebook', icon: 'mdi-facebook', url: 'https://www.instagram.com/sentimony.records/', target: 'true' },
           { key: 'instagram', icon: 'mdi-instagram', url: 'https://www.facebook.com/sentimony.records/', target: 'true'}
         ]
