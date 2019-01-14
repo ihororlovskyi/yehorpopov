@@ -15,6 +15,13 @@
       const responseContacts = await fetch('https://yehorpopov-db.firebaseio.com/contacts.json')
       const contacts = await responseContacts.json()
       return { contacts }
+    },
+    head: {
+      title: 'Contacts',
+      meta: [
+        { name: 'description', content: 'Contacts of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>

@@ -13,11 +13,13 @@
       </v-layout>
     </v-flex>
     <v-flex xs8>
+      <!-- <div v-if="loading">loading...</div> -->
+      <!-- <v-layout v-else> -->
       <v-layout>
-        <v-flex xs4 v-for="i in data" :key="i.id" v-if="i.homeTopImg">
+        <v-flex xs4 v-for="i in projects" :key="i.id" v-if="i.atHero">
           <a class="topImgItem"
             @click="onLoadProject(i.id)"
-            :style="'background-image:url(' + i.homeTopImg + ')'"
+            :style="'background-image:url(' + i.imgCover + ')'"
           >
             <div :class="'topImgItem__hover topImgItem__hover--' + i.slug">
               <div class="topImgItem__title">{{ i.shorttitle }}</div>
@@ -35,9 +37,9 @@
 
 <script>
   export default {
-    props: [
-      'data'
-    ],
+    // props: [
+    //   'data'
+    // ],
     data () {
       return {
         choose: 'Выберите дизайн проект, а мы сделаем перепланировку, ремонт и архитекторский надзор за 60 дней',
@@ -51,6 +53,14 @@
     methods: {
       onLoadProject (id) {
         this.$router.push('/project/' + id)
+      }
+    },
+    computed: {
+      loading () {
+        return this.$store.getters.loading
+      },
+      projects () {
+        return this.$store.getters.loadedProjectsSortedByDate
       }
     }
   }

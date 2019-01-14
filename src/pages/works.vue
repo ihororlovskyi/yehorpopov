@@ -10,6 +10,13 @@
   export default {
     components: {
       Works
+    },
+    head: {
+      title: 'Works',
+      meta: [
+        { name: 'description', content: 'Works of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>

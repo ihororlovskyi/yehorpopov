@@ -1,5 +1,5 @@
 <template>
-  <v-layout row wrap class="Projects mb-5" id="projects">
+  <v-layout column wrap class="Projects mb-5" id="projects">
     <!-- <div v-if="loading" class="text-xs-center">
       <v-progress-circular
         indeterminate

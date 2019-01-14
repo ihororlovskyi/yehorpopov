@@ -1,6 +1,6 @@
 <template>
   <section>
-    <hero :data="projects"/>
+    <hero/>
     <features :data="features"/>
     <projects :data="projects"/>
     <how-it-works :data="howItWorks"/>

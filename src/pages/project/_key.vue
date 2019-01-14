@@ -22,6 +22,13 @@
       project () {
         return this.$store.getters.loadedProject(this.$route.params.key)
       }
+    },
+    head: {
+      title: 'Project',
+      meta: [
+        { name: 'description', content: 'Project of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>
