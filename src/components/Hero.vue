@@ -1,6 +1,6 @@
 <template>
   <v-layout row wrap class="Hero mb-5">
-    <v-flex xs4>
+    <v-flex xs12 sm4>
       <div class="HeroChoose fs24 fw800">{{ choose }}</div>
       <v-layout align-center>
         <v-flex>
@@ -12,11 +12,11 @@
         </v-flex>
       </v-layout>
     </v-flex>
-    <v-flex xs8>
+    <v-flex xs12 sm8>
       <!-- <div v-if="loading">loading...</div> -->
       <!-- <v-layout v-else> -->
-      <v-layout>
-        <v-flex xs4 v-for="i in data" :key="i.id" v-if="i.atHero">
+      <v-layout row wrap>
+        <v-flex xs12 sm4 v-for="i in data" :key="i.id" v-if="i.atHero">
           <a class="topImgItem"
             @click="onLoadProject(i.id)"
             :style="'background-image:url(' + i.imgCover + ')'"
@@ -74,7 +74,7 @@
       // font-weight: 800
       margin-top: 160px
       margin-bottom: 20px
-      margin-right: -50%
+      // margin-right: -50%
       position: relative;
       z-index: 1
     &Userpic

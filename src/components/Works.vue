@@ -1,15 +1,15 @@
 <template>
   <section>
 
-  <div v-if="loading" class="text-xs-center">
+  <!-- <div v-if="loading" class="text-xs-center">
     <v-progress-circular
       indeterminate
       :size="60"
       color="black"
     />
-  </div>
+  </div> -->
 
-  <v-layout v-else row wrap class="Works mb-5" align-center v-if="username">
+  <v-layout row wrap class="Works mb-5" align-center v-if="username">
     <v-flex xs6>
       <div class="fs24 fw800 mb-4">{{ title }}</div>
       <div v-if="username"><a :href="instapage" target="_blank">@{{ username }}</a></div>
