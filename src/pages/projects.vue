@@ -1,6 +1,6 @@
 <template>
   <section>
-    <projects :data="projects"/>
+    <projects :data="loadedProjectsSortedByDate"/>
   </section>
 </template>
 
@@ -18,7 +18,7 @@
     //   return { projects }
     // },
     computed: {
-      projects () {
+      loadedProjectsSortedByDate () {
         return this.$store.getters.loadedProjectsSortedByDate
       }
     },

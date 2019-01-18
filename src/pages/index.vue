@@ -1,8 +1,8 @@
 <template>
   <section>
-    <hero :data="projects"/>
+    <hero :data="loadedProjectsAtHero"/>
     <features :data="features"/>
-    <projects :data="projects"/>
+    <projects :data="loadedProjectsSortedByDate"/>
     <how-it-works :data="howItWorks"/>
     <works/>
     <team :data="team"/>
@@ -63,8 +63,11 @@
       }
     },
     computed: {
-      projects () {
+      loadedProjectsSortedByDate () {
         return this.$store.getters.loadedProjectsSortedByDate
+      },
+      loadedProjectsAtHero () {
+        return this.$store.getters.loadedProjectsAtHero
       }
     },
     head: {

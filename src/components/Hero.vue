@@ -16,7 +16,7 @@
       <!-- <div v-if="loading">loading...</div> -->
       <!-- <v-layout v-else> -->
       <v-layout row wrap>
-        <v-flex xs12 sm4 v-for="i in data" :key="i.id" v-if="i.atHero">
+        <v-flex xs4 v-for="i in data" :key="i.id">
           <a class="topImgItem"
             @click="onLoadProject(i.id)"
             :style="'background-image:url(' + i.imgCover + ')'"

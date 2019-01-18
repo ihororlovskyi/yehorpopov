@@ -55,6 +55,11 @@ export default {
         return new Date(itemA.date) - new Date(itemB.date)
       }).reverse()
     },
+    loadedProjectsAtHero (state, getters) {
+      return getters.loadedProjectsSortedByDate.filter((project) => {
+        return project.atHero
+      }).slice(0, 3)
+    },
     loadedProject (state) {
       return (itemId) => {
         return state.loadedProjects.find((item) => {
