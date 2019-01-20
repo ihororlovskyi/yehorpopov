@@ -8,9 +8,9 @@
       />
     </div>
     <v-layout v-else row wrap class="ProjectsItem mb-5" v-for="i in data" :key="i.slug"> -->
-    <v-layout row wrap class="ProjectsItem mb-5" v-for="i in data" :key="i.slug">
+    <v-layout row wrap class="ProjectsItem mb-5" v-for="i in data" :key="i.id">
       <v-flex xs12>
-        <div class="fs24 fw800 mb80">{{ i.title }}</div>
+        <div class="fs24 fw800 mb80">{{ preTitle }} "{{ i.title }}"</div>
       </v-flex>
       <v-flex xs4>
         <div class="ProjectsItemText mb-5">
@@ -23,10 +23,10 @@
         </div>
       </v-flex>
       <v-flex xs8>
-        <img :src="i.imgSlider" alt="" class="ProjectsItemImg mb-5">
+        <img :src="i.imgCover" alt="" class="ProjectsItemImg mb-5">
       </v-flex>
       <v-flex xs12>
-        <img :src="i.imgSlim" alt="" class="ProjectsItemImg mb-5">
+        <v-parallax class="mb-5" :src="i.imgCover" height="300"/>
         <v-divider/>
       </v-flex>
     </v-layout>
@@ -40,6 +40,7 @@
     ],
     data () {
       return {
+        preTitle: 'Дизайн проект',
         priceText: 'Цена проекта и ремонта:',
         btnText: 'Подробнее',
         btnIcon: 'mdi-chevron-right'

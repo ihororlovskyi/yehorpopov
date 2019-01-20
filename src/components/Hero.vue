@@ -21,8 +21,8 @@
             @click="onLoadProject(i.id)"
             :style="'background-image:url(' + i.imgCover + ')'"
           >
-            <div :class="'topImgItem__hover topImgItem__hover--' + i.slug">
-              <div class="topImgItem__title">{{ i.shorttitle }}</div>
+            <div :class="'topImgItem__hover'" :style="'background-color:' + i.heroColor">
+              <div class="topImgItem__title">{{ i.title }}</div>
               <v-btn outline class="mx-0 mt-4">
                 {{ btnText }}
                 <v-icon right>{{ btnIcon }}</v-icon>
@@ -108,17 +108,7 @@
       // z-index 10
       transition: bottom .1s ease
       padding 7px 12px
-      background-color #f2f2f2
-
-      &--minimalism
-        background-color #f2f2f2
-
-      &--le-corbusier
-        background-color #e8ca6a
-
-      &--brutal-electricity
-        background-color #b17629
-
+      
     &__title
       font-weight 800
       color #262626

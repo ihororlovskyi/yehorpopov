@@ -23,14 +23,15 @@ export default {
             items.push({
               id: key,
               title: obj[key].title,
-              slug: obj[key].slug,
-              shorttitle: obj[key].shorttitle,
+              // slug: obj[key].slug,
+              // shorttitle: obj[key].shorttitle,
               description: obj[key].description,
               price: obj[key].price,
               atHero: obj[key].atHero,
+              heroColor: obj[key].heroColor,
               imgCover: obj[key].imgCover,
-              imgSlider: obj[key].imgSlider,
-              imgSlim: obj[key].imgSlim,
+              // imgSlider: obj[key].imgSlider,
+              // imgSlim: obj[key].imgSlim,
               date: obj[key].date
             })
           }
