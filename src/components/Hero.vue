@@ -72,7 +72,7 @@
     &Choose
       // font-size: 24px
       // font-weight: 800
-      margin-top: 160px
+      // margin-top: 160px
       margin-bottom: 20px
       // margin-right: -50%
       position: relative;
@@ -108,7 +108,7 @@
       // z-index 10
       transition: bottom .1s ease
       padding 7px 12px
-      
+
     &__title
       font-weight 800
       color #262626

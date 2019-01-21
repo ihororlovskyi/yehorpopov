@@ -6,6 +6,7 @@
     <v-layout row wrap class="HiwItem" v-for="i in data.list" :key="i.title">
       <v-flex xs4>
         <img v-if="i.img" class="HiwItemImg" :src="i.img" alt="">
+        <!-- <v-parallax class="mb-5" v-if="i.img" :src="i.img" height="300"/> -->
       </v-flex>
       <v-flex xs8>
         <div class="HiwItemText">
