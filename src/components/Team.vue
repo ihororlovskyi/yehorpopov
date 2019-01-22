@@ -46,7 +46,7 @@
           margin-left: 40px
           &Quote
             margin-top: 120px
-            margin-left: -130px
+            // margin-left: -130px
 
         &:nth-child(1)
           width: 100%
