@@ -15,7 +15,7 @@ export default {
   actions: {
     loadProjects ({commit}) {
       commit('setLoading', true)
-      firebase.database().ref('projects2').once('value')
+      firebase.database().ref('projects').once('value')
         .then((data) => {
           const items = []
           const obj = data.val()
@@ -23,15 +23,11 @@ export default {
             items.push({
               id: key,
               title: obj[key].title,
-              // slug: obj[key].slug,
-              // shorttitle: obj[key].shorttitle,
               description: obj[key].description,
               price: obj[key].price,
               atHero: obj[key].atHero,
               heroColor: obj[key].heroColor,
               imgCover: obj[key].imgCover,
-              // imgSlider: obj[key].imgSlider,
-              // imgSlim: obj[key].imgSlim,
               date: obj[key].date
             })
           }
@@ -51,13 +47,16 @@ export default {
     loadedProjects (state) {
       return state.loadedProjects
     },
-    loadedProjectsSortedByDate (state, getters) {
+    loadedProjectsSortedByOld (state, getters) {
       return getters.loadedProjects.sort((itemA, itemB) => {
         return new Date(itemA.date) - new Date(itemB.date)
-      }).reverse()
+      })
+    },
+    loadedProjectsSortedByNew (state, getters) {
+      return getters.loadedProjectsSortedByOld.reverse()
     },
     loadedProjectsAtHero (state, getters) {
-      return getters.loadedProjectsSortedByDate.filter((project) => {
+      return getters.loadedProjectsSortedByOld.filter((project) => {
         return project.atHero
       }).slice(0, 3)
     },

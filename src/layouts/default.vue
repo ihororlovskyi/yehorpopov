@@ -48,58 +48,53 @@
       <!-- </v-content> -->
 
       <v-navigation-drawer
-        persistent
         v-model="drawer"
         app
         right
       >
-        <!-- <v-toolbar flat class="transparent" dense> -->
-          <v-list>
+        <v-list>
+          <v-list-tile exact :to="home.url">
+            <v-list-tile-action>
+              <v-icon>{{ home.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ home.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <v-list-tile exact :to="home.url">
-              <v-list-tile-action>
-                <v-icon>{{ home.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ home.title }}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
+          <v-divider/>
 
-            <v-divider/>
+          <v-list-tile
+            v-for="i in menu"
+            :key="i.url"
+            :to="i.url"
+          >
+            <v-list-tile-action>
+              <v-icon>{{ i.icon }}</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+              <v-list-tile-title>{{ i.title }}</v-list-tile-title>
+            </v-list-tile-content>
+          </v-list-tile>
 
-            <v-list-tile
-              v-for="i in menu"
-              :key="i.url"
-              :to="i.url"
-            >
-              <v-list-tile-action>
-                <v-icon>{{ i.icon }}</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>{{ i.title }}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
+          <v-divider/>
 
-            <v-divider/>
+          <v-list-tile
+            v-for="i in socialMenu"
+            :key="i.url"
+            :href="i.url"
+            target="_blank"
+          >
+            <v-list-tile-action>
+              <v-icon>{{ i.icon }}</v-icon>
+            </v-list-tile-action>
+            <!-- <v-list-tile-content>
+              <v-list-tile-title>{{ i.title }}</v-list-tile-title>
+            </v-list-tile-content> -->
+          </v-list-tile>
 
-            <v-list-tile
-              v-for="i in socialMenu"
-              :key="i.url"
-              :href="i.url"
-              target="_blank"
-            >
-              <v-list-tile-action>
-                <v-icon>{{ i.icon }}</v-icon>
-              </v-list-tile-action>
-              <!-- <v-list-tile-content>
-                <v-list-tile-title>{{ i.title }}</v-list-tile-title>
-              </v-list-tile-content> -->
-            </v-list-tile>
-
-            <v-divider/>
-          </v-list>
-
-        </v-toolbar>
+          <v-divider/>
+        </v-list>
       </v-navigation-drawer>
 
     </v-app>
@@ -141,7 +136,6 @@
     },
     methods: {
       onLoadPage (url) {
-        // drawer = !drawer
         this.$router.push(url)
       }
     }
