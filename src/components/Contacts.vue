@@ -6,8 +6,18 @@
           <div class="fs24 fw800 mb40">{{ data.title }}</div>
         </v-flex>
         <v-flex xs4>
-          <v-btn small class="ma-0 px-0" style="min-width:28px" flat v-for="i in socialMenu" :key="i.key" :href="i.url" target="_blank">
-            <v-icon small>{{ i.icon }}</v-icon>
+          <v-btn
+            small
+            class="ma-0 px-0"
+            style="min-width:28px"
+            flat
+            v-for="i in social"
+            v-if="i.link"
+            :key="i.key"
+            :href="i.link"
+            target="_blank"
+          >
+            <v-icon small v-if="i.icon">{{ i.icon }}</v-icon>
           </v-btn>
         </v-flex>
         <v-flex xs4>
@@ -34,16 +44,9 @@
 <script>
   export default {
     props: [
-      'data'
-    ],
-    data () {
-      return {
-        socialMenu: [
-          { key: 'facebook', icon: 'mdi-facebook', url: 'https://www.instagram.com/sentimony.records/', target: 'true' },
-          { key: 'instagram', icon: 'mdi-instagram', url: 'https://www.facebook.com/sentimony.records/', target: 'true'}
-        ]
-      }
-    },
+      'data',
+      'social'
+    ]
   }
 </script>
 

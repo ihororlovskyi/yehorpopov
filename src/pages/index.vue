@@ -6,7 +6,7 @@
     <how-it-works :data="howItWorks"/>
     <works/>
     <team :data="team"/>
-    <contacts :data="contacts"/>
+    <contacts :data="contacts" :social="loadedSocialLinksSortedByOld"/>
   </section>
 </template>
 
@@ -63,11 +63,14 @@
       }
     },
     computed: {
+      loadedProjectsAtHero () {
+        return this.$store.getters.loadedProjectsAtHero
+      },
       loadedProjectsSortedByOld () {
         return this.$store.getters.loadedProjectsSortedByOld
       },
-      loadedProjectsAtHero () {
-        return this.$store.getters.loadedProjectsAtHero
+      loadedSocialLinksSortedByOld () {
+        return this.$store.getters.loadedSocialLinksSortedByOld
       }
     },
     head: {

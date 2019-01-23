@@ -18,8 +18,15 @@
         </v-toolbar-items>
         <v-spacer class="hidden-md-and-down"/>
         <v-toolbar-items class="hidden-md-and-down">
-          <v-btn flat v-for="i in socialMenu" :key="i.key" :href="i.url" target="_blank">
-            <v-icon small>{{ i.icon }}</v-icon>
+          <v-btn
+            flat
+            v-for="i in loadedSocialLinksSortedByOld"
+            v-if="i.link"
+            :key="i.key"
+            :href="i.link"
+            target="_blank"
+          >
+            <v-icon small v-if="i.icon">{{ i.icon }}</v-icon>
           </v-btn>
         </v-toolbar-items>
 
@@ -29,17 +36,6 @@
         </v-toolbar-side-icon>
 
       </v-toolbar>
-
-      <!-- <app-header></app-header> -->
-
-        <!-- <div v-if="loading" class="text-xs-center">
-          <v-progress-circular
-            indeterminate
-            :size="60"
-            color="black"
-          />
-        </div>
-        <nuxt v-else/> -->
 
       <!-- <v-content> -->
         <v-container class="MainContainer">
@@ -80,17 +76,18 @@
           <v-divider/>
 
           <v-list-tile
-            v-for="i in socialMenu"
-            :key="i.url"
-            :href="i.url"
+            v-for="i in loadedSocialLinksSortedByOld"
+            v-if="i.link"
+            :key="i.key"
+            :href="i.link"
             target="_blank"
           >
             <v-list-tile-action>
-              <v-icon>{{ i.icon }}</v-icon>
+              <v-icon small v-if="i.icon">{{ i.icon }}</v-icon>
             </v-list-tile-action>
-            <!-- <v-list-tile-content>
-              <v-list-tile-title>{{ i.title }}</v-list-tile-title>
-            </v-list-tile-content> -->
+            <v-list-tile-content>
+              <v-list-tile-title v-if="i.title">{{ i.title }}</v-list-tile-title>
+            </v-list-tile-content>
           </v-list-tile>
 
           <v-divider/>
@@ -102,19 +99,6 @@
 </template>
 
 <script>
-  // import AppHeader from '@/components/Header'
-  //
-  // export default {
-  //   components: {
-  //     AppHeader
-  //   },
-  //   // computed: {
-  //   //   loading () {
-  //   //     return this.$store.getters.loading
-  //   //   }
-  //   // }
-  // }
-
   export default {
     data () {
       return {
@@ -126,12 +110,12 @@
           { key: 'works', title: 'Наши работы', url: '/works' },
           { key: 'team', title: 'Команда', url: '/team' },
           { key: 'contacts', title: 'Контакты', url: '/contacts' }
-        ],
-        socialMenu: [
-          { key: 'telegram', icon: 'mdi-telegram', url: 'https://www.instagram.com/sentimony.records/', target: 'true' },
-          { key: 'facebook', icon: 'mdi-facebook', url: 'https://www.instagram.com/sentimony.records/', target: 'true' },
-          { key: 'instagram', icon: 'mdi-instagram', url: 'https://www.facebook.com/sentimony.records/', target: 'true'}
         ]
+      }
+    },
+    computed: {
+      loadedSocialLinksSortedByOld () {
+        return this.$store.getters.loadedSocialLinksSortedByOld
       }
     },
     methods: {

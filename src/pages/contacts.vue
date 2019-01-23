@@ -1,6 +1,6 @@
 <template>
   <section>
-    <contacts :data="contacts"/>
+    <contacts :data="contacts" :social="loadedSocialLinksSortedByOld"/>
   </section>
 </template>
 
@@ -15,6 +15,11 @@
       const responseContacts = await fetch('https://yehorpopov-db.firebaseio.com/contacts.json')
       const contacts = await responseContacts.json()
       return { contacts }
+    },
+    computed: {
+      loadedSocialLinksSortedByOld () {
+        return this.$store.getters.loadedSocialLinksSortedByOld
+      }
     },
     head: {
       title: 'Contacts',
