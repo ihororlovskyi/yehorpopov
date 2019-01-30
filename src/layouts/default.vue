@@ -62,7 +62,7 @@
 
           <v-list-tile
             v-for="i in menu"
-            :key="i.url"
+            :key="i.key"
             :to="i.url"
           >
             <v-list-tile-action>
