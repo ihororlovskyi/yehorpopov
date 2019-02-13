@@ -23,7 +23,9 @@ module.exports = {
   },
   // mode: "spa",
   plugins: [
-    '~/plugins/vuetify.js'
+    '~/plugins/vuetify.js',
+    '~/plugins/fireauth.js'
+    // { src: '~/plugins/fireauth.js', ssr: true }
   ],
   css: [
     '~/assets/styles/main.css',
@@ -78,5 +80,8 @@ module.exports = {
         ]
       }
     }
-  }
-};
+  },
+  // router: {
+  //   mode: 'hash'
+  // }
+}

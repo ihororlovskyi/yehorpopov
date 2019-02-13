@@ -1,35 +1,46 @@
 <template>
-  <v-layout row wrap class="Projectpage">
-    <v-flex xs12>
-      <h1 class="fs24 fw800">{{ project.title }}</h1>
-    </v-flex>
-    <v-flex xs4>
-      <div v-html="project.description"/>
-      <div>Цена проекта и ремонта: <b>{{ project.price }}</b></div>
-    </v-flex>
-    <v-flex xs8>
-      <img :src="project.img" alt="" class="ProjectpageImg">
-    </v-flex>
-  </v-layout>
+  <section>
+    <projects-page :data="project"/>
+    <how-it-works :data="howItWorks"/>
+
+  </section>
 </template>
 
 <script>
-  import fetch from 'isomorphic-fetch'
+  import ProjectsPage from '@/components/ProjectsPage'
+  import HowItWorks from '@/components/HowItWorks'
+  // import fetch from 'isomorphic-fetch'
 
   export default {
-    async asyncData({ route }) {
-      const { key } = route.params
-      const response = await fetch('https://yehorpopov-db.firebaseio.com/projects/' + key + '.json')
-      const project = await response.json()
-      return { project }
+    components: {
+      ProjectsPage,
+      HowItWorks
+    },
+    async asyncData() {
+      const responseHowItWorks = await fetch('https://yehorpopov-db.firebaseio.com/howItWorks.json')
+      const howItWorks = await responseHowItWorks.json()
+      return { howItWorks }
+    },
+    // async asyncData({ route }) {
+    //   const { key } = route.params
+    //   const response = await fetch('https://yehorpopov-db.firebaseio.com/projects/' + key + '.json')
+    //   const project = await response.json()
+    //   return { project }
+    // },
+    computed: {
+      project () {
+        return this.$store.getters.loadedProject(this.$route.params.key)
+      }
+    },
+    head: {
+      title: 'Project',
+      meta: [
+        { name: 'description', content: 'Project of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>
 
 <style lang="stylus">
-  .Projectpage
-    //
-    &Img
-      width: 100%;
-      display: block;
 </style>

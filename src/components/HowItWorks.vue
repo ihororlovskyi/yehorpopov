@@ -1,19 +1,24 @@
 <template>
   <v-layout row wrap class="Hiw mb-5">
-    <div class="fs24 fw800">{{ data.title }}</div>
-    <ul>
-      <li class="HiwItem" v-for="i in data.list" :key="i.title">
-        <img class="HiwItemImg" :src="i.img" alt="">
-        <div class="fs24 fw800">{{ i.title }}</div>
-        <ul>
-          <li v-for="ii in i.description" :key="i.p">{{ ii.p }}</li>
-        </ul>
-      </li>
-    </ul>
-    <v-btn outline class="mx-0">
-      Заказать просчет
-      <v-icon>mdi-chevron-right</v-icon>
-    </v-btn>
+    <v-flex xs12>
+      <div class="fs24 fw800 mb80">{{ data.title }}</div>
+    </v-flex>
+    <v-layout row wrap class="HiwItem" v-for="i in data.list" :key="i.title">
+      <v-flex xs4>
+        <img v-if="i.img" class="HiwItemImg" :src="i.img" alt="">
+        <!-- <v-parallax class="mb-5" v-if="i.img" :src="i.img" height="300"/> -->
+      </v-flex>
+      <v-flex xs8>
+        <div class="HiwItemText">
+          <div class="fs24 fw800 mb-3">{{ i.title }}</div>
+          <p v-if="i.description" v-for="ii in i.description" :key="i.p">{{ ii.p }}</p>
+          <v-btn v-if="!i.description" outline class="mx-0">
+            {{ btnText }}
+            <v-icon right>{{ btnIcon }}</v-icon>
+          </v-btn>
+        </div>
+      </v-flex>
+    </v-layout>
   </v-layout>
 </template>
 
@@ -21,7 +26,13 @@
   export default {
     props: [
       'data'
-    ]
+    ],
+    data () {
+      return {
+        btnText: 'Заказать просчет',
+        btnIcon: 'mdi-chevron-right'
+      }
+    }
   }
 </script>
 
@@ -29,9 +40,14 @@
   .Hiw
     //
     &Item
-      //
+      margin-bottom: 80px
 
       &Img
-        width: 400px
+        width: 100%
         display: block
+        // margin-right: 38px
+
+      &Text
+        margin-left: 38px
+
 </style>

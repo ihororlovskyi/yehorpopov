@@ -1,12 +1,12 @@
 <template>
   <section>
-    <hero :data="projects"/>
-    <features/>
-    <projects :data="projects"/>
+    <hero :data="loadedProjectsAtHero"/>
+    <features :data="features"/>
+    <projects :data="loadedProjectsSortedByOld"/>
     <how-it-works :data="howItWorks"/>
     <works/>
-    <team/>
-    <contacts/>
+    <team :data="team"/>
+    <contacts :data="contacts" :social="loadedSocialLinksSortedByOld"/>
   </section>
 </template>
 
@@ -30,12 +30,55 @@
       Team,
       Contacts
     },
+    // data () {
+    //   return {
+    //     access_token: '176908350.1677ed0.3c30032e917a430e8d1f65eae2223b1e',
+    //     url: 'https://api.instagram.com/v1/users/self/media/recent/',
+    //     username: '',
+    //     grams: [],
+    //     next_url: '',
+    //     error: false
+    //  }
+    // },
     async asyncData() {
-      const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
+      // const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects2.json')
+      const responseFeatures = await fetch('https://yehorpopov-db.firebaseio.com/features.json')
       const responseHowItWorks = await fetch('https://yehorpopov-db.firebaseio.com/howItWorks.json')
-      const projects = await responseProjects.json()
+      // const responseWorks = await fetch('https://api.instagram.com/v1/users/self/media/recent/?access_token=176908350.1677ed0.3c30032e917a430e8d1f65eae2223b1e')
+      const responseTeam = await fetch('https://yehorpopov-db.firebaseio.com/team.json')
+      const responseContacts = await fetch('https://yehorpopov-db.firebaseio.com/contacts.json')
+      // const projects = await responseProjects.json()
+      const features = await responseFeatures.json()
       const howItWorks = await responseHowItWorks.json()
-      return { projects, howItWorks }
+      // const works = await responseWorks.json()
+      const team = await responseTeam.json()
+      const contacts = await responseContacts.json()
+      return {
+        // projects,
+        features,
+        howItWorks,
+        // works,
+        team,
+        contacts
+      }
+    },
+    computed: {
+      loadedProjectsAtHero () {
+        return this.$store.getters.loadedProjectsAtHero
+      },
+      loadedProjectsSortedByOld () {
+        return this.$store.getters.loadedProjectsSortedByOld
+      },
+      loadedSocialLinksSortedByOld () {
+        return this.$store.getters.loadedSocialLinksSortedByOld
+      }
+    },
+    head: {
+      title: 'Home',
+      meta: [
+        { name: 'description', content: 'Home of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>

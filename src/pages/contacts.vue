@@ -1,6 +1,6 @@
 <template>
   <section>
-    <contacts/>
+    <contacts :data="contacts" :social="loadedSocialLinksSortedByOld"/>
   </section>
 </template>
 
@@ -10,6 +10,23 @@
   export default {
     components: {
       Contacts
+    },
+    async asyncData() {
+      const responseContacts = await fetch('https://yehorpopov-db.firebaseio.com/contacts.json')
+      const contacts = await responseContacts.json()
+      return { contacts }
+    },
+    computed: {
+      loadedSocialLinksSortedByOld () {
+        return this.$store.getters.loadedSocialLinksSortedByOld
+      }
+    },
+    head: {
+      title: 'Contacts',
+      meta: [
+        { name: 'description', content: 'Contacts of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>

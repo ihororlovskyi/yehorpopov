@@ -1,6 +1,6 @@
 <template>
   <section>
-    <projects :data="projects"/>
+    <projects :data="loadedProjectsSortedByOld"/>
   </section>
 </template>
 
@@ -12,10 +12,22 @@
     components: {
       Projects
     },
-    async asyncData() {
-      const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects.json')
-      const projects = await responseProjects.json()
-      return { projects }
+    // async asyncData() {
+    //   const responseProjects = await fetch('https://yehorpopov-db.firebaseio.com/projects2.json')
+    //   const projects = await responseProjects.json()
+    //   return { projects }
+    // },
+    computed: {
+      loadedProjectsSortedByOld () {
+        return this.$store.getters.loadedProjectsSortedByOld
+      }
+    },
+    head: {
+      title: 'Projects',
+      meta: [
+        { name: 'description', content: 'Projects of Studio Yehor Popov ' },
+        { property: 'og:image', content: '' }
+      ]
     }
   }
 </script>
